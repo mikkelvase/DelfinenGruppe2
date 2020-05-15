@@ -2,7 +2,7 @@ package com.Mikkel;
 
 import java.util.ArrayList;
 
-public class Hold {
+public class Klub {
     ArrayList<Svømmer> ungdomsHoldet = new ArrayList<>();
     ArrayList<Svømmer> seniorHoldet = new ArrayList<>();
     ArrayList<Svømmer> alleSvømmere = new ArrayList<>();
@@ -18,4 +18,7 @@ public class Hold {
             }
         }
     }
+
+
+
 }

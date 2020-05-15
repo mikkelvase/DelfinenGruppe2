@@ -18,7 +18,7 @@ public class Main {
 
 
         //Test af holdklasse
-        Hold hold = new Hold();
+        Klub hold = new Klub();
 
         //virker ikke lige nu, men Kamma er lige vågnet :D
         hold.fordelSvømmerePåHold();

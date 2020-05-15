@@ -2,17 +2,16 @@ package com.Mikkel;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.ArrayList;
 
 public class Svømmer {
     private String navn;
     private LocalDate fødselsdag;
     private String adresse;
     private String aktivitetsform;
-    private String medlemskabsType;
+    private String medlemskabsType; //KonkurrenceSvømmer-Klasse istedet for String
 
     //virker ikke
-    private static Hold hold = new Hold();
+    private static Klub hold = new Klub();
 
 
 
@@ -25,7 +24,7 @@ public class Svømmer {
         this.aktivitetsform = aktivitetsform;
         this.medlemskabsType = medlemskabsType;
 
-        //virker ikke
+        //skal ske i Controller
         hold.alleSvømmere.add(this);
     }
 
