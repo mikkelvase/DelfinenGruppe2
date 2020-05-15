@@ -11,7 +11,10 @@ public class Svømmer {
     private String aktivitetsform;
     private String medlemskabsType;
 
-    ArrayList<Svømmer> alleSvømmere = new ArrayList<>();
+    //virker ikke
+    private static Hold hold = new Hold();
+
+
 
 
 
@@ -22,7 +25,8 @@ public class Svømmer {
         this.aktivitetsform = aktivitetsform;
         this.medlemskabsType = medlemskabsType;
 
-        alleSvømmere.add(this);
+        //virker ikke
+        hold.alleSvømmere.add(this);
     }
 
     //Overload

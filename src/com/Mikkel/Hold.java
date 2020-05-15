@@ -5,13 +5,17 @@ import java.util.ArrayList;
 public class Hold {
     ArrayList<Svømmer> ungdomsHoldet = new ArrayList<>();
     ArrayList<Svømmer> seniorHoldet = new ArrayList<>();
+    ArrayList<Svømmer> alleSvømmere = new ArrayList<>();
 
-    public void addSvømmerTilHold(Svømmer s){
-        if (!s.erMotionist() && s.calculateAge(s.getFødselsdag()) > 17) {
-            seniorHoldet.add(s);
-        }
-        if (!s.erMotionist() && s.calculateAge(s.getFødselsdag()) < 18){
-            ungdomsHoldet.add(s);
+
+    public void fordelSvømmerePåHold() {
+        for (int i = 0; i < alleSvømmere.size(); i++) {
+            if (!alleSvømmere.get(i).erMotionist() && alleSvømmere.get(i).calculateAge(alleSvømmere.get(i).getFødselsdag()) > 17) {
+                seniorHoldet.add(alleSvømmere.get(i));
+            }
+            if (!alleSvømmere.get(i).erMotionist() && alleSvømmere.get(i).calculateAge(alleSvømmere.get(i).getFødselsdag()) < 18) {
+                ungdomsHoldet.add(alleSvømmere.get(i));
+            }
         }
     }
 }

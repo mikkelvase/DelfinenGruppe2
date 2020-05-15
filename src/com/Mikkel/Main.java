@@ -16,13 +16,18 @@ public class Main {
 
 
 
+
         //Test af holdklasse
         Hold hold = new Hold();
 
-        hold.addSvømmerTilHold(svømmer);
+        //virker ikke lige nu, men Kamma er lige vågnet :D
+        hold.fordelSvømmerePåHold();
 
+        System.out.println(hold.alleSvømmere.size());
         System.out.println(hold.seniorHoldet.size());
         System.out.println(hold.ungdomsHoldet.size());
+
+
 
     }
 }
