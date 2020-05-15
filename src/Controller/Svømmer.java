@@ -24,8 +24,7 @@ public class Svømmer {
         this.aktivitetsform = aktivitetsform;
         this.medlemskabsType = medlemskabsType;
 
-        //skal ske i Controller
-        hold.alleSvømmere.add(this);
+
     }
 
     //Overload
