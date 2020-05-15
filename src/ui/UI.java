@@ -1,6 +1,7 @@
 package ui;
-import com.Mikkel.*;
+import Controller.*;
 
 public class UI {
+
 
 }
