@@ -1,14 +1,28 @@
 package com.Mikkel;
 
+import java.time.LocalDate;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("hej");
-        System.out.println("Hej2");
-        System.out.println("Hej fra mikkel :)");
-        System.out.println("Hej fra mikkel :)");
-        System.out.println("Hey fra SpiritCrusher");
-        // Hello
-        //Hey igen
+        //Test af svømmerklasse
+        Svømmer svømmer = new Svømmer("Simon", LocalDate.of(1988, 9, 11), "P.D. Løvs Alle", "Aktiv", "Konkurrence");
+
+        //demonstration af hvordan erMotionist() og harAktivtMedlemskab() kan bruges
+        System.out.println(svømmer.erMotionist());
+        System.out.println(!svømmer.erMotionist());
+        System.out.println(svømmer.harAktivtMedlemskab());
+        System.out.println(!svømmer.harAktivtMedlemskab());
+
+
+
+        //Test af holdklasse
+        Hold hold = new Hold();
+
+        hold.addSvømmerTilHold(svømmer);
+
+        System.out.println(hold.seniorHoldet.size());
+        System.out.println(hold.ungdomsHoldet.size());
+
     }
 }
