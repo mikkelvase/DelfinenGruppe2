@@ -10,15 +10,15 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
 
 
-        /*
+
         //Fil Test - Thomas
         Controller cont = new Controller();
         UI ui = new UI();
         cont.opretSvømmer(ui.promptTilOprettelseAfSvømmer());
 
-        SvømmerFil svømmerFil = new SvømmerFil();
-        System.out.println(svømmerFil.scanFraFil());
-        */
+        //SvømmerFil svømmerFil = new SvømmerFil();
+       // System.out.println(svømmerFil.scanFraFil());
+
 
 
 

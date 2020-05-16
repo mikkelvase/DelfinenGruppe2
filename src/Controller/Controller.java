@@ -1,9 +1,7 @@
 package Controller;
 import ui.*;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -19,11 +17,12 @@ public class Controller {
         String adresse = medlemsData[2];
 
         try {
-            PrintStream ps = new PrintStream(file);
+            PrintStream ps = new PrintStream(new FileOutputStream(file,true));
             if (medlemsData.length == 4) {
                 String aktivitetsform = medlemsData[3];
                 Svømmer svømmer = new Svømmer(navn, fødselsdag, adresse, aktivitetsform);
                 ps.println(svømmer);
+
             } else if (medlemsData.length == 5) {
                 String aktivitetsform = medlemsData[3];
                 String medlemskabsType = medlemsData[4];
