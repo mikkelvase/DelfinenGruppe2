@@ -11,19 +11,12 @@ public class Svømmer {
     private String medlemskabsType; //KonkurrenceSvømmer-Klasse istedet for String
 
 
-
-
-
-
-
     public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform, String medlemskabsType) {
         this.navn = navn;
         this.fødselsdag = fødselsdag;
         this.adresse = adresse;
         this.aktivitetsform = aktivitetsform;
         this.medlemskabsType = medlemskabsType;
-
-
     }
 
     //Overload
@@ -39,7 +32,6 @@ public class Svømmer {
         this.navn = navn;
         this.fødselsdag = fødselsdag;
         this.adresse = adresse;
-
     }
 
     public boolean harAktivtMedlemskab(){
@@ -50,9 +42,9 @@ public class Svømmer {
         return medlemskabsType.equalsIgnoreCase("motionist");
     }
 
-    public int calculateAge(LocalDate fødselsdag) {
+    public int calculateAge() {
         if ((fødselsdag != null)) {
-            return Period.between(fødselsdag, LocalDate.now()).getYears();
+            return Period.between(getFødselsdag(), LocalDate.now()).getYears();
         } else {
             return 0;
         }

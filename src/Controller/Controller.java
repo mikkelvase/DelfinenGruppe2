@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Controller {
     private Klub klub = new Klub();
 
-    //Denne funktion skal også skrive dataen til fil
+    //Denne metode skal også skrive dataen til fil
     public void opretSvømmer(String[] medlemsData){
         String navn = medlemsData[0];
         LocalDate fødselsdag = LocalDate.parse(medlemsData[1]);
