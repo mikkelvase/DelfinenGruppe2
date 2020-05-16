@@ -10,6 +10,7 @@ public class Svømmer {
     private String aktivitetsform;
     private String medlemskabsType; //KonkurrenceSvømmer-Klasse istedet for String
     private boolean iRestance;
+    private int gæld;
 
 
     public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform, String medlemskabsType) {
@@ -18,7 +19,7 @@ public class Svømmer {
         this.adresse = adresse;
         this.aktivitetsform = aktivitetsform;
         this.medlemskabsType = medlemskabsType;
-        this.iRestance = false;
+        this.gæld;
     }
 
     //Overload
@@ -27,7 +28,7 @@ public class Svømmer {
         this.fødselsdag = fødselsdag;
         this.adresse = adresse;
         this.aktivitetsform = aktivitetsform;
-        this.iRestance = false;
+        this.gæld;
     }
 
     //Overload
@@ -35,7 +36,7 @@ public class Svømmer {
         this.navn = navn;
         this.fødselsdag = fødselsdag;
         this.adresse = adresse;
-        this.iRestance = false;
+        this.gæld;
     }
 
 
@@ -49,11 +50,22 @@ public class Svømmer {
     }
 
     public boolean isiRestance() {
+        if(gæld > 0){
+            iRestance = true;
+        }
         return iRestance;
     }
 
     public void setiRestance(){
         iRestance = true;
+    }
+
+    public int getGæld() {
+        return gæld;
+    }
+
+    public void setGæld(int gæld) {
+        this.gæld = gæld;
     }
 
     public int calculateAge() {
