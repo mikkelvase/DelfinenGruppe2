@@ -10,8 +10,7 @@ public class Svømmer {
     private String aktivitetsform;
     private String medlemskabsType; //KonkurrenceSvømmer-Klasse istedet for String
 
-    //virker ikke
-    private static Klub hold = new Klub();
+
 
 
 

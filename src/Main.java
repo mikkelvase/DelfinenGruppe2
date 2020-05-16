@@ -1,4 +1,6 @@
 import Controller.*;
+import ui.UI;
+
 import java.time.LocalDate;
 
 public class Main {
@@ -6,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-
+        /*
         //////////////////////
         //Controller test
         //////////////////////
@@ -23,6 +25,11 @@ public class Main {
         cont.opretSvømmer(nySvømmer);
 
         System.out.println(cont.getKlub().getMedlemsListe().size());
+
+
+         */
+
+
 
 
 

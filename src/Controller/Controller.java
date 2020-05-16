@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Controller {
-    private ArrayList<Svømmer> alleSvømmere = new ArrayList<>();
     private Klub klub = new Klub();
 
     //Denne funktion skal også skrive dataen til fil
@@ -39,7 +38,4 @@ public class Controller {
         return klub;
     }
 
-    public ArrayList<Svømmer> getAlleSvømmere() {
-        return alleSvømmere;
-    }
 }
