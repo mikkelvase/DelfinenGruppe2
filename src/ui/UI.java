@@ -8,7 +8,7 @@ public class UI {
     private Controller controller = new Controller();
 
 
-    public void promptTilOprettelseAfSvømmer() {
+    public String[] promptTilOprettelseAfSvømmer() {
 
         try {
             System.out.print("Indtast navn: ");
@@ -34,7 +34,7 @@ public class UI {
             nySvømmer[3] = aktivitetsform;
             nySvømmer[4] = medlemskabsType;
 
-            controller.opretSvømmer(nySvømmer);
+            return nySvømmer;
 
 
         } catch (Exception e) {
@@ -43,6 +43,7 @@ public class UI {
         }
 
 
+        return null;
     }
 
 

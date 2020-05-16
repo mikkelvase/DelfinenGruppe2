@@ -1,19 +1,34 @@
 import Controller.*;
+import Storage.SvømmerFil;
 import ui.UI;
 
+import java.io.FileNotFoundException;
 import java.time.LocalDate;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
 
         /*
+        //Fil Test - Thomas
+        Controller cont = new Controller();
+        UI ui = new UI();
+        cont.opretSvømmer(ui.promptTilOprettelseAfSvømmer());
+
+        SvømmerFil svømmerFil = new SvømmerFil();
+        System.out.println(svømmerFil.scanFraFil());
+        */
+
+
+
+
+/*
+
+
         //////////////////////
         //Controller test
         //////////////////////
-        Controller cont = new Controller();
-
         String[] nySvømmer = new String[5];
 
         nySvømmer[0] = "Henrik";
@@ -25,15 +40,7 @@ public class Main {
         cont.opretSvømmer(nySvømmer);
 
         System.out.println(cont.getKlub().getMedlemsListe().size());
-
-
-         */
-
-
-
-
-
-
+*/
 
 
 

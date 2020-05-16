@@ -1,0 +1,1 @@
+Svømmer{navn='Thomas', fødselsdag=1996-05-09, adresse='Frederikssundsvej', aktivitetsform='aktiv', medlemskabsType='Motionist'}

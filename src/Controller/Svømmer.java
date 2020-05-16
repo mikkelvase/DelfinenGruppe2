@@ -34,6 +34,8 @@ public class Svømmer {
         this.adresse = adresse;
     }
 
+
+
     public boolean harAktivtMedlemskab(){
         return (aktivitetsform.equalsIgnoreCase("aktiv"));
     }
@@ -54,7 +56,16 @@ public class Svømmer {
         return fødselsdag;
     }
 
-
+    @Override
+    public String toString() {
+        return "Svømmer{" +
+                "navn='" + navn + '\'' +
+                ", fødselsdag=" + fødselsdag +
+                ", adresse='" + adresse + '\'' +
+                ", aktivitetsform='" + aktivitetsform + '\'' +
+                ", medlemskabsType='" + medlemskabsType + '\'' +
+                '}';
+    }
 }
 
 
