@@ -7,6 +7,7 @@ import java.time.LocalDate;
 
 public class Main {
 
+    //Vi skal nok have fjernet "throws FileNotFoundException" delen inden vi afleverer
     public static void main(String[] args) throws FileNotFoundException {
 
 

@@ -9,8 +9,8 @@ public class Svømmer {
     private String adresse;
     private String aktivitetsform;
     private String medlemskabsType; //KonkurrenceSvømmer-Klasse istedet for String
-    private boolean iRestance;
-    private int gæld;
+    private boolean inRestance;
+    private int balance;
 
 
     public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform, String medlemskabsType) {
@@ -19,7 +19,7 @@ public class Svømmer {
         this.adresse = adresse;
         this.aktivitetsform = aktivitetsform;
         this.medlemskabsType = medlemskabsType;
-        this.gæld;
+        balance = 0;
     }
 
     //Overload
@@ -28,7 +28,7 @@ public class Svømmer {
         this.fødselsdag = fødselsdag;
         this.adresse = adresse;
         this.aktivitetsform = aktivitetsform;
-        this.gæld;
+        balance = 0;
     }
 
     //Overload
@@ -36,7 +36,7 @@ public class Svømmer {
         this.navn = navn;
         this.fødselsdag = fødselsdag;
         this.adresse = adresse;
-        this.gæld;
+        balance = 0;
     }
 
 
@@ -49,23 +49,22 @@ public class Svømmer {
         return medlemskabsType.equalsIgnoreCase("motionist");
     }
 
-    public boolean isiRestance() {
-        if(gæld > 0){
-            iRestance = true;
-        }
-        return iRestance;
+    public boolean isInRestance() {
+        return balance < 0;
+
     }
 
-    public void setiRestance(){
-        iRestance = true;
+    //Usikker på om vi skal bruge  den her metode..?
+    public void setInRestance(){
+        inRestance = true;
     }
 
-    public int getGæld() {
-        return gæld;
+    public int getBalance() {
+        return balance;
     }
 
-    public void setGæld(int gæld) {
-        this.gæld = gæld;
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 
     public int calculateAge() {
