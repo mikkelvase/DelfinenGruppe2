@@ -20,6 +20,16 @@ public class Klub {
         return motionister;
     }
 
+    public ArrayList<Svømmer> getKonkurrencesvømmere(){
+        ArrayList<Svømmer> konkurrencesvømmere = new ArrayList<>();
+        for (int i = 0; i <medlemsListe.size() ; i++) {
+            if (!medlemsListe.get(i).erMotionist()){
+                konkurrencesvømmere.add(medlemsListe.get(i));
+            }
+        }
+        return motionister;
+    }
+
     public ArrayList<Svømmer> getUngdomshold(){
         ArrayList<Svømmer> ungdomshold = new ArrayList<>();
         for (int i = 0; i <medlemsListe.size() ; i++) {
