@@ -1,1 +1,1 @@
-Svømmer{navn='thomas', fødselsdag=1996-05-02, adresse='kk', aktivitetsform='kk', medlemskabsType='kk'}Svømmer{navn='David', fødselsdag=2000-05-05, adresse='fRe', aktivitetsform='atkv', medlemskabsType='aktiv'}
+Mikkel 1996-04-02 nørrevang aktiv passiv

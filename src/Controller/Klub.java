@@ -10,6 +10,13 @@ public class Klub {
         return medlemsListe;
     }
 
+
+    public void insertToKlub(Svømmer svømmer) {
+
+        medlemsListe.add(svømmer);
+
+    }
+
     public ArrayList<Svømmer> getMotionister(){
         ArrayList<Svømmer> motionister = new ArrayList<>();
         for (int i = 0; i <medlemsListe.size() ; i++) {

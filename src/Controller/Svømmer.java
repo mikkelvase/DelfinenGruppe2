@@ -97,13 +97,13 @@ public class Svømmer {
 
     @Override
     public String toString() {
-        return "Svømmer{" +
-                "navn='" + navn + '\'' +
-                ", fødselsdag=" + fødselsdag +
-                ", adresse='" + adresse + '\'' +
-                ", aktivitetsform='" + aktivitetsform + '\'' +
-                ", medlemskabsType='" + medlemskabsType + '\'' +
-                '}';
+        return
+                  navn + " " +
+                  fødselsdag + " " +
+                  adresse + " " +
+                 aktivitetsform + " " +
+                 medlemskabsType
+                ;
     }
 }
 
