@@ -15,7 +15,7 @@ public class Svømmer {
     private ArrayList<String> disciplin = new ArrayList<>();
 
 
-    public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform, String medlemskabsType, disciplin) {
+    public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform, String medlemskabsType, ArrayList<String> disciplin) {
         this.navn = navn;
         this.fødselsdag = fødselsdag;
         this.adresse = adresse;
@@ -26,7 +26,18 @@ public class Svømmer {
     }
 
     //Overload
-    public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform){
+    public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform, String medlemskabsType) {
+        this.navn = navn;
+        this.fødselsdag = fødselsdag;
+        this.adresse = adresse;
+        this.aktivitetsform = aktivitetsform;
+        this.medlemskabsType = medlemskabsType;
+            balance = 0;
+        }
+    
+
+    //Overload
+    public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform) {
         this.navn = navn;
         this.fødselsdag = fødselsdag;
         this.adresse = adresse;
@@ -41,8 +52,6 @@ public class Svømmer {
         this.adresse = adresse;
         balance = 0;
     }
-
-
 
     public boolean harAktivtMedlemskab(){
         return (aktivitetsform.equalsIgnoreCase("aktiv"));

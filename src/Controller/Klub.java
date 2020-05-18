@@ -27,7 +27,7 @@ public class Klub {
                 konkurrencesvømmere.add(medlemsListe.get(i));
             }
         }
-        return motionister;
+        return konkurrencesvømmere;
     }
 
     public ArrayList<Svømmer> getUngdomshold(){
