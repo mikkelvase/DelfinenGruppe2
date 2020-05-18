@@ -10,20 +10,14 @@ public class Main {
     //Vi skal nok have fjernet "throws FileNotFoundException" delen inden vi afleverer
     public static void main(String[] args) throws FileNotFoundException {
 
-        Klub klub = new Klub();
-        SvømmerFil svømmerFil = new SvømmerFil();
-
-        //Fil Test - Thomas
-
-        svømmerFil.scanFraFil();
-        System.out.println(klub.getMedlemsListe());
-
 
         Controller cont = new Controller();
-        UI ui = new UI();
-        cont.opretSvømmer(ui.promptTilOprettelseAfSvømmer());
+        cont.scanFraFil();
+        cont.Menu();
 
-        System.out.println(klub.getMedlemsListe());
+
+
+
 
 
 

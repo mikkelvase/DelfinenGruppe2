@@ -1,4 +1,5 @@
 package Controller;
+import Storage.SvømmerFil;
 import ui.*;
 
 import java.io.*;
@@ -7,6 +8,8 @@ import java.util.ArrayList;
 
 public class Controller {
     private Klub klub = new Klub();
+    private UI ui = new UI();
+     SvømmerFil svømmerfil = new SvømmerFil();
 
 
     //Tror ikke vi skal sætte ind i Arraylist her, da vi indlæser i arraylist når vi læser fra fil.
@@ -19,8 +22,48 @@ public class Controller {
     //På den måde kan vi nøjes med at tilgå medlemsListe når vi skal håndtere medlemmer og printe forskellige data ud
     //og slipper derfor for at skulle ned og læse i fil i hver metode.
     //Vh Simon
+
+
+    public void Menu() throws FileNotFoundException {
+
+
+        ui.uiText("tryk 1 for at oprette svømmer");
+        ui.uiText("tryk 2 for at printe alle svømmere");
+
+        int userChoice = ui.userChosenMenu();
+
+
+        if (userChoice == 1) {
+
+            opretSvømmer(ui.promptTilOprettelseAfSvømmer());
+        } else if (userChoice == 2) {
+
+            ui.uiText("Klubben: " + getKlub());
+        }
+
+        Menu();
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void opretSvømmer(String[] medlemsData) {
+
         File file = new File("Svømmer.txt");
+
         String navn = medlemsData[0];
         LocalDate fødselsdag = LocalDate.parse(medlemsData[1]);
         String adresse = medlemsData[2];
@@ -51,37 +94,21 @@ public class Controller {
 
     }
 
-    /*
-    //Tror ikke vi skal bruge den her siden vi laver en Arraylist når vi indlæser filerne.
-    public void opretSvømmer(String[] medlemsData){
-        String navn = medlemsData[0];
-        LocalDate fødselsdag = LocalDate.parse(medlemsData[1]);
-        String adresse = medlemsData[2];
 
-        if (medlemsData.length == 4) {
-            String aktivitetsform = medlemsData[3];
-            Svømmer svømmer = new Svømmer(navn, fødselsdag, adresse, aktivitetsform);
-            klub.getMedlemsListe().add(svømmer);
+    public ArrayList<Svømmer> getKlub() {
 
-        }
-        else if (medlemsData.length == 5) {
-            String aktivitetsform = medlemsData[3];
-            String medlemskabsType = medlemsData[4];
-            Svømmer svømmer = new Svømmer(navn, fødselsdag, adresse, aktivitetsform, medlemskabsType);
-            klub.getMedlemsListe().add(svømmer);
-
-        } else {
-            Svømmer svømmer = new Svømmer(navn, fødselsdag, adresse);
-            klub.getMedlemsListe().add(svømmer);
-
-        }
-
+        return klub.getMedlemsListe();
     }
 
-    */
+    public void scanFraFil() throws FileNotFoundException {
 
-    public Klub getKlub() {
-        return klub;
+        ArrayList<Svømmer> tempSvømmer;
+        tempSvømmer = svømmerfil.scanFraFil();
+
+        for (int i = 0; i < tempSvømmer.size(); i++) {
+            klub.getMedlemsListe().add(tempSvømmer.get(i));
+        }
     }
+
 
 }

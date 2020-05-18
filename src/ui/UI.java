@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class UI {
     private Scanner input = new Scanner(System.in);
-    private Controller controller = new Controller();
+    // private Controller controller = new Controller();
 
 
     public String[] promptTilOprettelseAfSvømmer() {
@@ -48,5 +48,22 @@ public class UI {
         return null;
     }
 
+    public Integer userChosenMenu() {
+        Scanner scan = new Scanner(System.in);
+        int choosenNumber = scan.nextInt();
+        return choosenNumber;
+    }
 
+    public void uiText(String text) {
+
+        System.out.println(text);
+    }
+
+    /*
+    public String getInput(String string) {
+        string = userChosenMenu();
+        return string;
+    }
+
+     */
 }
