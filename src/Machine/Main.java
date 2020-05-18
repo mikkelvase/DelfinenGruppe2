@@ -1,3 +1,5 @@
+package Machine;
+
 import Controller.*;
 import Storage.SvømmerFil;
 import ui.UI;
@@ -9,7 +11,6 @@ public class Main {
 
     //Vi skal nok have fjernet "throws FileNotFoundException" delen inden vi afleverer
     public static void main(String[] args) throws FileNotFoundException {
-
 
         Controller cont = new Controller();
         cont.scanFraFil();
