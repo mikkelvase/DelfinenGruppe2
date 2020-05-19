@@ -10,19 +10,18 @@ public class Svømmer {
     protected String adresse;
     protected String aktivitetsform;
     protected KonkurrenceSvømmer konkurrenceSvømmer;
-    //private String medlemskabsType; //KonkurrenceSvømmer-Klasse istedet for String
     protected boolean inRestance;
     protected int balance;
 
 
-    /*public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform, String medlemskabsType) {
+    public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform, KonkurrenceSvømmer konkurrenceSvømmer) {
         this.navn = navn;
         this.fødselsdag = fødselsdag;
         this.adresse = adresse;
         this.aktivitetsform = aktivitetsform;
-        this.medlemskabsType = medlemskabsType;
+        this.konkurrenceSvømmer = konkurrenceSvømmer;
         balance = 0;
-    }*/
+    }
 
     //Overload
     public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform) {
@@ -41,10 +40,6 @@ public class Svømmer {
         balance = 0;
     }
 
-        //Overload
-    public Svømmer() {
-
-    }
 
     public void registrerSomKonkurrencesvømmer(KonkurrenceSvømmer k){
         konkurrenceSvømmer = k;

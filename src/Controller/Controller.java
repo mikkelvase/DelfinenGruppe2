@@ -66,8 +66,12 @@ public class Controller {
 
             } else if (medlemsData.length == 5) {
                 String aktivitetsform = medlemsData[3];
+                //KonkurrenceSvømmer konkurrenceSvømmer  = medlemsData[4], men virker ikke da medlemsData er et array af Strings.
+                // Vi skal nok lave det om til en Arraylist men så er der RIGTIG mange steder der skal refaktureres
                 String medlemskabsType = medlemsData[4];
                 Svømmer svømmer = new Svømmer(navn, fødselsdag, adresse, aktivitetsform);
+                //Kommer så til at være:
+                //Svømmer svømmer = new Svømmer(navn, fødselsdag, adresse, aktivitetsform, konkurrenceSvømmer);
                 klub.getMedlemsListe().add(svømmer);
                 ps.println(svømmer);
             } else {
