@@ -33,10 +33,10 @@ public class SvømmerFil {
             String fødselsdag = scan.next();
             String adresse = scan.next();
             String aktivitetsform = scan.next();
-            String konkurrence = scan.next();
+            //String konkurrence = scan.next();
 
 
-            svømmerListe.add(new Svømmer(navn , LocalDate.parse(fødselsdag) , adresse , aktivitetsform , konkurrence));
+            svømmerListe.add(new Svømmer(navn , LocalDate.parse(fødselsdag) , adresse , aktivitetsform ));
 
 
 

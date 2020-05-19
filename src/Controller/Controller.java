@@ -48,19 +48,6 @@ public class Controller {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void opretSvømmer(String[] medlemsData) {
 
         File file = new File("Svømmer.txt");
@@ -80,7 +67,7 @@ public class Controller {
             } else if (medlemsData.length == 5) {
                 String aktivitetsform = medlemsData[3];
                 String medlemskabsType = medlemsData[4];
-                Svømmer svømmer = new Svømmer(navn, fødselsdag, adresse, aktivitetsform, medlemskabsType);
+                Svømmer svømmer = new Svømmer(navn, fødselsdag, adresse, aktivitetsform);
                 klub.getMedlemsListe().add(svømmer);
                 ps.println(svømmer);
             } else {
