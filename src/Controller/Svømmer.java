@@ -5,36 +5,23 @@ import java.time.Period;
 import java.util.ArrayList;
 
 public class Svømmer {
-    private String navn;
-    private LocalDate fødselsdag;
-    private String adresse;
-    private String aktivitetsform;
-    private String medlemskabsType; //KonkurrenceSvømmer-Klasse istedet for String
-    private boolean inRestance;
-    private int balance;
-    private ArrayList<String> disciplin = new ArrayList<>();
+    protected String navn;
+    protected LocalDate fødselsdag;
+    protected String adresse;
+    protected String aktivitetsform;
+    //private String medlemskabsType; //KonkurrenceSvømmer-Klasse istedet for String
+    protected boolean inRestance;
+    protected int balance;
 
 
-    public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform, String medlemskabsType, ArrayList<String> disciplin) {
+    /*public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform, String medlemskabsType) {
         this.navn = navn;
         this.fødselsdag = fødselsdag;
         this.adresse = adresse;
         this.aktivitetsform = aktivitetsform;
         this.medlemskabsType = medlemskabsType;
         balance = 0;
-        this.disciplin = disciplin;
-    }
-
-    //Overload
-    public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform, String medlemskabsType) {
-        this.navn = navn;
-        this.fødselsdag = fødselsdag;
-        this.adresse = adresse;
-        this.aktivitetsform = aktivitetsform;
-        this.medlemskabsType = medlemskabsType;
-            balance = 0;
-        }
-    
+    }*/
 
     //Overload
     public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform) {
@@ -57,17 +44,13 @@ public class Svømmer {
         return (aktivitetsform.equalsIgnoreCase("aktiv"));
     }
 
-    public boolean erMotionist(){
+    /*public boolean erMotionist(){
         return medlemskabsType.equalsIgnoreCase("motionist");
-    }
+    }*/
 
     public boolean isInRestance() {
         return balance < 0;
 
-    }
-
-    public void tilføjDisciplin(String tilføjDisciplin){
-        disciplin.add(tilføjDisciplin);
     }
 
     //Usikker på om vi skal bruge  den her metode..?
