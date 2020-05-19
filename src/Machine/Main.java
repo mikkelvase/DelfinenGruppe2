@@ -13,15 +13,17 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
 
         Controller cont = new Controller();
+
+        // Henter gemte svømmere fra fil
+
         cont.scanFraFil();
+
+        // Starter menuen op
         cont.Menu();
 
 
 
 
-        KonkurrenceSvømmer ks = new KonkurrenceSvømmer(Disciplin.CRAWL, Disciplin.RYGCRAWL);
-        int s = ks.getDisciplin().size();
-        System.out.println(s);
 
 
 

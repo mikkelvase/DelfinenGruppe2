@@ -4,7 +4,6 @@ import Storage.SvømmerFil;
 import ui.*;
 
 import java.io.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Controller {
@@ -36,7 +35,11 @@ public class Controller {
 
         if (userChoice == 1) {
 
-            opretSvømmer(ui.promptTilOprettelseAfSvømmer());
+            Svømmer nydeltager = ui.promptTilOprettelseAfSvømmer();
+            opretNySvømmer(nydeltager);
+
+
+
         } else if (userChoice == 2) {
 
             ui.uiText("Klubben: " + getKlub());
@@ -48,61 +51,44 @@ public class Controller {
     }
 
 
-    public void opretSvømmer(String[] medlemsData) {
+    // Metoden tager en svømmer som parameter. herefter tilføjer den svømmeren til vores klub.
+    // Derefter giver vi den vores Svømmer.txt fil og printer vores nyoprettede svømmer til filen så svømmeren altid er gemt.
 
+    public void opretNySvømmer(Svømmer svømmer) throws FileNotFoundException {
+
+        getKlub().add(svømmer);
         File file = new File("Svømmer.txt");
-
-        String navn = medlemsData[0];
-        LocalDate fødselsdag = LocalDate.parse(medlemsData[1]);
-        String adresse = medlemsData[2];
-
-        try {
-            PrintStream ps = new PrintStream(new FileOutputStream(file,true));
-            if (medlemsData.length == 4) {
-                String aktivitetsform = medlemsData[3];
-                Svømmer svømmer = new Svømmer(navn, fødselsdag, adresse, aktivitetsform);
-                klub.getMedlemsListe().add(svømmer);
-                ps.println(svømmer);
-
-            } else if (medlemsData.length == 5) {
-                String aktivitetsform = medlemsData[3];
-                //KonkurrenceSvømmer konkurrenceSvømmer  = medlemsData[4], men virker ikke da medlemsData er et array af Strings.
-                // Vi skal nok lave det om til en Arraylist men så er der RIGTIG mange steder der skal refaktureres
-                String medlemskabsType = medlemsData[4];
-                Svømmer svømmer = new Svømmer(navn, fødselsdag, adresse, aktivitetsform);
-                //Kommer så til at være:
-                //Svømmer svømmer = new Svømmer(navn, fødselsdag, adresse, aktivitetsform, konkurrenceSvømmer);
-                klub.getMedlemsListe().add(svømmer);
-                ps.println(svømmer);
-            } else {
-                Svømmer svømmer = new Svømmer(navn, fødselsdag, adresse);
-                klub.getMedlemsListe().add(svømmer);
-                ps.println(svømmer);
-            }
-
-        } catch (FileNotFoundException e) {
-            System.out.println("Unable to write to file");
-        }
+        PrintStream ps = new PrintStream(new FileOutputStream(file,true));
+        ps.println(svømmer);
 
     }
 
-
-
+    // Funktion til at få vores medlemdsliste fra klub klassen.
 
     public ArrayList<Svømmer> getKlub() {
 
         return klub.getMedlemsListe();
     }
 
+
+    // Scan Fra fil opretter en ny arrayliste ud fra den arrayliste som opretSvømmereUdFraDataITekstFil() retunere.
+    // Herefter looper vi igennem vores midlertidige arrayliste og henter hver en svømmer og tilføjer dem til klubben.
+    // På den måde har vi altid en klub fuld af medlemmer når programmet starter.
+
     public void scanFraFil() throws FileNotFoundException {
 
-        ArrayList<Svømmer> tempSvømmer;
-        tempSvømmer = svømmerfil.scanFraFil();
+        ArrayList<Svømmer> temp = svømmerfil.opretSvømmereUdFraDataITekstFil();
 
-        for (int i = 0; i < tempSvømmer.size(); i++) {
-            klub.getMedlemsListe().add(tempSvømmer.get(i));
+        for (int i = 0; i < temp.size(); i++) {
+
+            getKlub().add(temp.get(i));
+
+
         }
+
     }
+
+
 
 
 }

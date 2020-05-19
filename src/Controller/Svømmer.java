@@ -2,38 +2,41 @@ package Controller;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.ArrayList;
 
 public class Svømmer {
     protected String navn;
     protected LocalDate fødselsdag;
     protected String adresse;
     protected String aktivitetsform;
-    protected KonkurrenceSvømmer konkurrenceSvømmer;
+    protected String medlemskabsType;
+    protected Disciplin[] disciplin;
     protected boolean inRestance;
     protected int balance;
 
 
-    public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform, KonkurrenceSvømmer konkurrenceSvømmer) {
+    public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform, String medlemskabsType , Disciplin... disciplins) {
         this.navn = navn;
         this.fødselsdag = fødselsdag;
         this.adresse = adresse;
         this.aktivitetsform = aktivitetsform;
-        this.konkurrenceSvømmer = konkurrenceSvømmer;
+        this.medlemskabsType = medlemskabsType;
+        this.disciplin = disciplins;
+
         balance = 0;
     }
 
     //Overload
-    public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform) {
+    public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform, String medlemskabsType) {
         this.navn = navn;
         this.fødselsdag = fødselsdag;
         this.adresse = adresse;
         this.aktivitetsform = aktivitetsform;
+        this.medlemskabsType = medlemskabsType;
         balance = 0;
     }
 
     //Overload
-    public Svømmer(String navn, LocalDate fødselsdag, String adresse){
+    public Svømmer(String navn, LocalDate fødselsdag, String s, String adresse){
         this.navn = navn;
         this.fødselsdag = fødselsdag;
         this.adresse = adresse;
@@ -41,9 +44,11 @@ public class Svømmer {
     }
 
 
-    public void registrerSomKonkurrencesvømmer(KonkurrenceSvømmer k){
-        konkurrenceSvømmer = k;
+    public void setDisciplin(Disciplin[] disciplin) {
+        this.disciplin = disciplin;
     }
+
+
 
     public boolean harAktivtMedlemskab(){
         return (aktivitetsform.equalsIgnoreCase("aktiv"));

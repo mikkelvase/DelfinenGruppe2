@@ -15,7 +15,7 @@ public class KonkurrenceSvømmer {
         }
         tider = new ArrayList<>();
     }
-
+/*
     public void tilføjDisciplin(Disciplin tilføjDis){
         disciplin.add(tilføjDis);
     }
@@ -27,4 +27,6 @@ public class KonkurrenceSvømmer {
     public ArrayList<Controller.Disciplin> getDisciplin() {
         return disciplin;
     }
+
+ */
 }

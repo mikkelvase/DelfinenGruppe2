@@ -3,6 +3,7 @@ import Controller.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class UI {
@@ -10,7 +11,7 @@ public class UI {
     // private Controller controller = new Controller();
 
 
-    public String[] promptTilOprettelseAfSvømmer() {
+    public Svømmer promptTilOprettelseAfSvømmer() {
 
         try {
             System.out.print("Indtast navn: ");
@@ -28,15 +29,46 @@ public class UI {
             System.out.print("Motionist eller konkurrencesvømmer? (indtast Motionist/Konkurrencesvømmer): ");
             String medlemskabsType = input.nextLine();
 
-            String[] nySvømmer = new String[5];
 
-            nySvømmer[0] = navn;
-            nySvømmer[1] = fødselsdag;
-            nySvømmer[2] = adresse;
-            nySvømmer[3] = aktivitetsform;
-            nySvømmer[4] = medlemskabsType;
+            Svømmer nySvømmer = new Svømmer(navn , LocalDate.parse(fødselsdag) , adresse , aktivitetsform , medlemskabsType);
 
             return nySvømmer;
+/*
+            if (medlemskabsType.toLowerCase() == "Motionist".toLowerCase()) {
+
+                Svømmer nySvømmer = new Svømmer(navn , LocalDate.parse(fødselsdag) , adresse , aktivitetsform , medlemskabsType);
+
+                return nySvømmer;
+
+            } else if (medlemskabsType.toLowerCase() == "Konkurrence".toLowerCase() ) {
+
+                System.out.print(" vil du tilføje en eller flere discipliner til svømmeren? tryk 1 for ja tryk 2 for at gemme ");
+                int brugerValg = input.nextInt();
+
+                if (brugerValg == 1) {
+
+
+                    System.out.print("Indtast en eller flere discipliner ");
+
+                    while(input.hasNext()) {
+
+                        String diciplin = input.nextLine();
+
+
+                    }
+
+                } else if (brugerValg == 2) {
+
+                    Svømmer nySvømmer = new Svømmer(navn , LocalDate.parse(fødselsdag) , adresse , aktivitetsform , medlemskabsType);
+
+                    return nySvømmer;
+
+
+                }
+
+
+ */
+
 
 
         } catch (Exception e) {

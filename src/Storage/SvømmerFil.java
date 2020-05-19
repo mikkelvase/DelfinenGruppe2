@@ -2,6 +2,7 @@
 package Storage;
 
 import Controller.Klub;
+import Controller.KonkurrenceSvømmer;
 import Controller.Svømmer;
 import ui.UI;
 
@@ -19,13 +20,14 @@ public class SvømmerFil {
 
 
 
-    public ArrayList<Svømmer> scanFraFil () throws FileNotFoundException {
+    public ArrayList<Svømmer> opretSvømmereUdFraDataITekstFil() throws FileNotFoundException {
 
         File file = new File("Svømmer.txt");
 
+        ArrayList<Svømmer> svømmerefraFil = new ArrayList<>();
+
         Scanner scan = new Scanner(file);
 
-        ArrayList<Svømmer> svømmerListe = new ArrayList<>();
 
         while (scan.hasNext()) {
 
@@ -36,12 +38,16 @@ public class SvømmerFil {
             //String konkurrence = scan.next();
 
 
-            svømmerListe.add(new Svømmer(navn , LocalDate.parse(fødselsdag) , adresse , aktivitetsform ));
 
+            Svømmer svømmer = new Svømmer(navn , LocalDate.parse(fødselsdag) , adresse , aktivitetsform );
+
+            svømmerefraFil.add(svømmer);
 
 
         }
-        return svømmerListe;
+
+
+        return svømmerefraFil;
 
     }
 
