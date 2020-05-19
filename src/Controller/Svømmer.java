@@ -9,6 +9,7 @@ public class Svømmer {
     protected LocalDate fødselsdag;
     protected String adresse;
     protected String aktivitetsform;
+    protected KonkurrenceSvømmer konkurrenceSvømmer;
     //private String medlemskabsType; //KonkurrenceSvømmer-Klasse istedet for String
     protected boolean inRestance;
     protected int balance;
@@ -40,13 +41,23 @@ public class Svømmer {
         balance = 0;
     }
 
+        //Overload
+    public Svømmer() {
+
+    }
+
+    public void registrerSomKonkurrencesvømmer(KonkurrenceSvømmer k){
+        konkurrenceSvømmer = k;
+    }
+
     public boolean harAktivtMedlemskab(){
         return (aktivitetsform.equalsIgnoreCase("aktiv"));
     }
 
-    /*public boolean erMotionist(){
-        return medlemskabsType.equalsIgnoreCase("motionist");
-    }*/
+    public boolean erMotionist(){
+        return true;// medlemskabsType.equalsIgnoreCase("motionist");
+    }
+
 
     public boolean isInRestance() {
         return balance < 0;
@@ -84,8 +95,8 @@ public class Svømmer {
                   navn + " " +
                   fødselsdag + " " +
                   adresse + " " +
-                 aktivitetsform + " " +
-                 medlemskabsType
+                 aktivitetsform + " "
+
                 ;
     }
 }

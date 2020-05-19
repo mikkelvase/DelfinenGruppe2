@@ -2,29 +2,29 @@ package Controller;
 
 import java.util.ArrayList;
 import java.time.LocalDate;
-import java.time.Period;
 
-public class KonkurrenceSvømmer extends Svømmer{
+public class KonkurrenceSvømmer {
 
-    private ArrayList<Disciplin> disciplin = new ArrayList<>();
-    private ArrayList<Tid> tider = new ArrayList<>();
+    private ArrayList<Disciplin> disciplin;
+    private ArrayList<Resultat> tider;
 
-    public KonkurrenceSvømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform) {
-        this.navn = navn;
-        this.fødselsdag = fødselsdag;
-        this.adresse = adresse;
-        this.aktivitetsform = aktivitetsform;
-        balance = 0;
-        disciplin;
-        tider;
+    public KonkurrenceSvømmer(Disciplin... disciplins) {
+        disciplin = new ArrayList<>();
+        for (int i = 0; i <disciplins.length ; i++) {
+            disciplin.add(disciplins[i]);
+        }
+        tider = new ArrayList<>();
     }
 
-    public void tilføjDisciplin(String tilføjDis){
+    public void tilføjDisciplin(Disciplin tilføjDis){
         disciplin.add(tilføjDis);
     }
 
-    public void tilføjTid(int tilføjTid){
-        tider.add(tilføjTid);
+    public void tilføjResultat(Resultat tilføjResultat){
+        tider.add(tilføjResultat);
     }
 
+    public ArrayList<Controller.Disciplin> getDisciplin() {
+        return disciplin;
+    }
 }

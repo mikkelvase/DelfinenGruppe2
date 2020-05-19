@@ -1,3 +1,4 @@
+
 package Controller;
 import Storage.SvømmerFil;
 import ui.*;
@@ -95,6 +96,8 @@ public class Controller {
     }
 
 
+
+
     public ArrayList<Svømmer> getKlub() {
 
         return klub.getMedlemsListe();
@@ -112,3 +115,4 @@ public class Controller {
 
 
 }
+

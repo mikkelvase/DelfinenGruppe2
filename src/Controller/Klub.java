@@ -1,4 +1,6 @@
+
 package Controller;
+
 
 import java.util.ArrayList;
 
@@ -12,7 +14,7 @@ public class Klub {
     }
 
 
-    /*public ArrayList<Svømmer> getMotionister(){
+    public ArrayList<Svømmer> getMotionister(){
         ArrayList<Svømmer> motionister = new ArrayList<>();
         for (int i = 0; i <medlemsListe.size() ; i++) {
             if (medlemsListe.get(i).erMotionist()){
@@ -30,7 +32,7 @@ public class Klub {
             }
         }
         return konkurrencesvømmere;
-    }*/
+    }
 
     public ArrayList<Svømmer> getMotionister(){
         ArrayList<Svømmer> motionister = new ArrayList<>();
@@ -149,3 +151,4 @@ public class Klub {
 
 
 }
+

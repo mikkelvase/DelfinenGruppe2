@@ -19,6 +19,12 @@ public class Main {
 
 
 
+        KonkurrenceSvømmer ks = new KonkurrenceSvømmer(Disciplin.CRAWL, Disciplin.RYGCRAWL);
+        int s = ks.getDisciplin().size();
+        System.out.println(s);
+
+
+
 
 
 
