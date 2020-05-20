@@ -1,6 +1,6 @@
 package Controller;
 
-public enum  Disciplin{
+public enum String {
         CRAWL, RYGCRAWL, BRYST, BUTTERFLY
 
 }

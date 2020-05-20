@@ -5,6 +5,7 @@ import Storage.SvømmerFil;
 import ui.UI;
 
 import java.io.FileNotFoundException;
+import java.lang.String;
 import java.time.LocalDate;
 
 public class Main {

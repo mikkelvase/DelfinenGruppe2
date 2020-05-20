@@ -4,17 +4,17 @@ import java.time.LocalDate;
 import java.time.Period;
 
 public class Svømmer {
-    protected String navn;
+    protected java.lang.String navn;
     protected LocalDate fødselsdag;
-    protected String adresse;
-    protected String aktivitetsform; //Aktiv/Passiv
-    protected String medlemskabsType;
-    protected Disciplin[] disciplin;
+    protected java.lang.String adresse;
+    protected java.lang.String aktivitetsform; //Aktiv/Passiv
+    protected java.lang.String medlemskabsType;
+    protected java.lang.String[] disciplin;
     protected boolean inRestance;
     protected int balance;
 
 
-    public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform , Disciplin... disciplins) {
+    public Svømmer(java.lang.String navn, LocalDate fødselsdag, java.lang.String adresse, java.lang.String aktivitetsform, java.lang.String[] disciplins) {
         this.navn = navn;
         this.fødselsdag = fødselsdag;
         this.adresse = adresse;
@@ -25,7 +25,7 @@ public class Svømmer {
     }
 
     //Overload
-    public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform, String medlemskabsType) {
+    public Svømmer(java.lang.String navn, LocalDate fødselsdag, java.lang.String adresse, java.lang.String aktivitetsform, java.lang.String medlemskabsType) {
         this.navn = navn;
         this.fødselsdag = fødselsdag;
         this.adresse = adresse;
@@ -35,7 +35,7 @@ public class Svømmer {
     }
 
     //Overload
-    public Svømmer(String navn, LocalDate fødselsdag, String s, String adresse){
+    public Svømmer(java.lang.String navn, LocalDate fødselsdag, java.lang.String s, java.lang.String adresse) {
         this.navn = navn;
         this.fødselsdag = fødselsdag;
         this.adresse = adresse;
@@ -43,18 +43,18 @@ public class Svømmer {
     }
 
 
-    public void setDisciplin(Disciplin[] disciplin) {
+
+    public void setDisciplin(java.lang.String[] disciplin) {
         this.disciplin = disciplin;
     }
 
 
-
-    public boolean harAktivtMedlemskab(){
+    public boolean harAktivtMedlemskab() {
         return (aktivitetsform.equalsIgnoreCase("aktiv"));
     }
 
     //SKAL FIXES
-    public boolean erMotionist(){
+    public boolean erMotionist() {
         return true;// medlemskabsType.equalsIgnoreCase("motionist");
     }
 
@@ -65,7 +65,7 @@ public class Svømmer {
     }
 
     //Usikker på om vi skal bruge  den her metode..?
-    public void setInRestance(){
+    public void setInRestance() {
         inRestance = true;
     }
 
@@ -90,13 +90,14 @@ public class Svømmer {
     }
 
     @Override
-    public String toString() {
+    public java.lang.String toString() {
         return
-                  navn + " " +
-                  fødselsdag + " " +
-                  adresse + " " +
-                 aktivitetsform + " " +
-                 disciplin
+                navn + " " +
+                        fødselsdag + " " +
+                        adresse + " " +
+                        aktivitetsform + " " +
+                        
+                        disciplin
 
                 ;
     }

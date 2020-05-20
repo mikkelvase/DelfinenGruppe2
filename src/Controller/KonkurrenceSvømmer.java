@@ -1,14 +1,13 @@
 package Controller;
 
 import java.util.ArrayList;
-import java.time.LocalDate;
 
 public class KonkurrenceSvømmer {
 
-    private ArrayList<Disciplin> disciplin;
+    private ArrayList<String> disciplin;
     private ArrayList<Resultat> tider;
 
-    public KonkurrenceSvømmer(Disciplin... disciplins) {
+    public KonkurrenceSvømmer(String... disciplins) {
         disciplin = new ArrayList<>();
         for (int i = 0; i <disciplins.length ; i++) {
             disciplin.add(disciplins[i]);
@@ -16,20 +15,20 @@ public class KonkurrenceSvømmer {
         tider = new ArrayList<>();
     }
 
-    public void tilføjDisciplin(Disciplin tilføjDis){
-        disciplin.add(tilføjDis);
+    public void tilføjDisciplin(String tilføjDisciplin){
+        disciplin.add(tilføjDisciplin);
     }
 
     public void tilføjResultat(Resultat tilføjResultat){
         tider.add(tilføjResultat);
     }
 
-    public ArrayList<Disciplin> getDisciplin() {
+    public ArrayList<String> getDisciplin() {
         return disciplin;
     }
 
     @Override
-    public String toString() {
+    public java.lang.String toString() {
         return "KonkurrenceSvømmer{" +
                 "disciplin=" + disciplin +
                 ", tider=" + tider +

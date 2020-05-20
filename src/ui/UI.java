@@ -2,6 +2,7 @@ package ui;
 
 import Controller.*;
 
+import java.lang.String;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -14,74 +15,36 @@ public class UI {
 
         try {
             System.out.print("Indtast navn: ");
-            String navn = input.nextLine();
+            java.lang.String navn = input.nextLine();
 
             System.out.print("Indtast fødselsdato (format: yyyy-mm-dd): ");
-            String fødselsdag = input.nextLine();
+            java.lang.String fødselsdag = input.nextLine();
 
             System.out.print("Indtast adresse: ");
-            String adresse = input.nextLine();
+            java.lang.String adresse = input.nextLine();
 
             System.out.print("Aktivt eller passivt medlem? (indtast Aktiv/Passiv): ");
-            String aktivitetsform = input.nextLine();
+            java.lang.String aktivitetsform = input.nextLine();
 
-            System.out.print("Motionist eller konkurrencesvømmer? (indtast Motionist/Konkurrencesvømmer): ");
-            String medlemskabsType = input.nextLine();
-
-            if (medlemskabsType.equalsIgnoreCase("motionist")) {
-                Svømmer nySvømmer = new Svømmer(navn, LocalDate.parse(fødselsdag), adresse, aktivitetsform);
+            System.out.println("Tast 1 for Motionist \nTast 2 for Konkurrencesvømmer");
+            String medlemskabsType = "";
+            int choice = input.nextInt();
+            if (choice == 1){
+                medlemskabsType  = "Motionist";
+                Svømmer nySvømmer = new Svømmer(navn, LocalDate.parse(fødselsdag), adresse, aktivitetsform, medlemskabsType);
+                System.out.println("Svømmer oprettet\n");
                 return nySvømmer;
 
-            }
-            if (medlemskabsType.equalsIgnoreCase("konkurrencesvømmer")) {
-                Disciplin[] disciplins = promptIndledendeDisciplinValg();
+            } else if (choice == 2 ) {
+                String[] disciplins = promptIndledendeDisciplinValg();
                 Svømmer nySvømmer = new Svømmer(navn, LocalDate.parse(fødselsdag), adresse, aktivitetsform, disciplins);
                 //Her skal bruger promptes til muligheden for at tilføje flere discipliner. Hvis brugeren ønsker det, skal de
                 //tilføjes via tilføjDisciplin() i KonkurrenceSvømmer--klassen
                 System.out.println("Svømmer oprettet");
                 return nySvømmer;
-
-
-
             }
 
             return null;
-/*
-            if (medlemskabsType.toLowerCase() == "Motionist".toLowerCase()) {
-
-                Svømmer nySvømmer = new Svømmer(navn , LocalDate.parse(fødselsdag) , adresse , aktivitetsform , medlemskabsType);
-
-                return nySvømmer;
-
-            } else if (medlemskabsType.toLowerCase() == "Konkurrence".toLowerCase() ) {
-
-                System.out.print(" vil du tilføje en eller flere discipliner til svømmeren? tryk 1 for ja tryk 2 for at gemme ");
-                int brugerValg = input.nextInt();
-
-                if (brugerValg == 1) {
-
-
-                    System.out.print("Indtast en eller flere discipliner ");
-
-                    while(input.hasNext()) {
-
-                        String diciplin = input.nextLine();
-
-
-                    }
-
-                } else if (brugerValg == 2) {
-
-                    Svømmer nySvømmer = new Svømmer(navn , LocalDate.parse(fødselsdag) , adresse , aktivitetsform , medlemskabsType);
-
-                    return nySvømmer;
-
-
-                }
-
-
- */
-
 
         } catch (Exception e) {
             System.out.println("Noget gik galt. Tast igen");
@@ -92,28 +55,27 @@ public class UI {
         return null;
     }
 
-    public Disciplin[] promptIndledendeDisciplinValg() {
-        Disciplin[] disciplins = new Disciplin[4];
-        int[] userChoices = new int[4];
+    public String[] promptIndledendeDisciplinValg() {
+        String[] chosenDisciplins = new String[4];
         System.out.println("1. Crawl // 2. Rygcrawl // 3. Bryst // 4. Butterfly:");
-        System.out.print("Indtast en disciplin:");
+        System.out.print("Indtast disciplin:");
         switch (input.nextInt()) {
             case 1:
-                disciplins[0] = Disciplin.CRAWL;
+                chosenDisciplins[0] = "Crawl";
                 break;
             case 2:
-                disciplins[1] = Disciplin.RYGCRAWL;
+                chosenDisciplins[1] = "Rygcrawl";
                 break;
             case 3:
-                disciplins[2] = Disciplin.BRYST;
+                chosenDisciplins[2] = "Bryst";
                 break;
             case 4:
-                disciplins[3] = Disciplin.BUTTERFLY;
+                chosenDisciplins[3] = "Butterfly";
                 break;
 
         }
 
-        return disciplins;
+        return chosenDisciplins;
         /*
         userChoices[0] = input.nextInt();
         System.out.print("Indtast en til disciplin eller afslut ved at taste 0:");
@@ -173,7 +135,7 @@ public class UI {
         return choosenNumber;
     }
 
-    public void uiText(String text) {
+    public void uiText(java.lang.String text) {
 
         System.out.println(text);
     }
