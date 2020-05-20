@@ -15,7 +15,7 @@ public class KonkurrenceSvømmer {
         }
         tider = new ArrayList<>();
     }
-/*
+
     public void tilføjDisciplin(Disciplin tilføjDis){
         disciplin.add(tilføjDis);
     }
@@ -24,9 +24,15 @@ public class KonkurrenceSvømmer {
         tider.add(tilføjResultat);
     }
 
-    public ArrayList<Controller.Disciplin> getDisciplin() {
+    public ArrayList<Disciplin> getDisciplin() {
         return disciplin;
     }
 
- */
+    @Override
+    public String toString() {
+        return "KonkurrenceSvømmer{" +
+                "disciplin=" + disciplin +
+                ", tider=" + tider +
+                '}';
+    }
 }

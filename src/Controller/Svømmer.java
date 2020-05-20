@@ -7,19 +7,18 @@ public class Svømmer {
     protected String navn;
     protected LocalDate fødselsdag;
     protected String adresse;
-    protected String aktivitetsform;
+    protected String aktivitetsform; //Aktiv/Passiv
     protected String medlemskabsType;
     protected Disciplin[] disciplin;
     protected boolean inRestance;
     protected int balance;
 
 
-    public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform, String medlemskabsType , Disciplin... disciplins) {
+    public Svømmer(String navn, LocalDate fødselsdag, String adresse, String aktivitetsform , Disciplin... disciplins) {
         this.navn = navn;
         this.fødselsdag = fødselsdag;
         this.adresse = adresse;
         this.aktivitetsform = aktivitetsform;
-        this.medlemskabsType = medlemskabsType;
         this.disciplin = disciplins;
 
         balance = 0;
@@ -54,6 +53,7 @@ public class Svømmer {
         return (aktivitetsform.equalsIgnoreCase("aktiv"));
     }
 
+    //SKAL FIXES
     public boolean erMotionist(){
         return true;// medlemskabsType.equalsIgnoreCase("motionist");
     }
@@ -95,7 +95,8 @@ public class Svømmer {
                   navn + " " +
                   fødselsdag + " " +
                   adresse + " " +
-                 aktivitetsform + " "
+                 aktivitetsform + " " +
+                 disciplin
 
                 ;
     }

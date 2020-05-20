@@ -35,8 +35,8 @@ public class Controller {
 
         if (userChoice == 1) {
 
-            Svømmer nydeltager = ui.promptTilOprettelseAfSvømmer();
-            opretNySvømmer(nydeltager);
+            Svømmer nySvømmer = ui.promptTilOprettelseAfSvømmer();
+            opretNySvømmer(nySvømmer);
 
 
 

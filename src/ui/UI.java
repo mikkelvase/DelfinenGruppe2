@@ -1,8 +1,7 @@
 package ui;
+
 import Controller.*;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -29,10 +28,24 @@ public class UI {
             System.out.print("Motionist eller konkurrencesvømmer? (indtast Motionist/Konkurrencesvømmer): ");
             String medlemskabsType = input.nextLine();
 
+            if (medlemskabsType.equalsIgnoreCase("motionist")) {
+                Svømmer nySvømmer = new Svømmer(navn, LocalDate.parse(fødselsdag), adresse, aktivitetsform);
+                return nySvømmer;
 
-            Svømmer nySvømmer = new Svømmer(navn , LocalDate.parse(fødselsdag) , adresse , aktivitetsform , medlemskabsType);
+            }
+            if (medlemskabsType.equalsIgnoreCase("konkurrencesvømmer")) {
+                Disciplin[] disciplins = promptIndledendeDisciplinValg();
+                Svømmer nySvømmer = new Svømmer(navn, LocalDate.parse(fødselsdag), adresse, aktivitetsform, disciplins);
+                //Her skal bruger promptes til muligheden for at tilføje flere discipliner. Hvis brugeren ønsker det, skal de
+                //tilføjes via tilføjDisciplin() i KonkurrenceSvømmer--klassen
+                System.out.println("Svømmer oprettet");
+                return nySvømmer;
 
-            return nySvømmer;
+
+
+            }
+
+            return null;
 /*
             if (medlemskabsType.toLowerCase() == "Motionist".toLowerCase()) {
 
@@ -70,7 +83,6 @@ public class UI {
  */
 
 
-
         } catch (Exception e) {
             System.out.println("Noget gik galt. Tast igen");
             promptTilOprettelseAfSvømmer();
@@ -79,6 +91,81 @@ public class UI {
 
         return null;
     }
+
+    public Disciplin[] promptIndledendeDisciplinValg() {
+        Disciplin[] disciplins = new Disciplin[4];
+        int[] userChoices = new int[4];
+        System.out.println("1. Crawl // 2. Rygcrawl // 3. Bryst // 4. Butterfly:");
+        System.out.print("Indtast en disciplin:");
+        switch (input.nextInt()) {
+            case 1:
+                disciplins[0] = Disciplin.CRAWL;
+                break;
+            case 2:
+                disciplins[1] = Disciplin.RYGCRAWL;
+                break;
+            case 3:
+                disciplins[2] = Disciplin.BRYST;
+                break;
+            case 4:
+                disciplins[3] = Disciplin.BUTTERFLY;
+                break;
+
+        }
+
+        return disciplins;
+        /*
+        userChoices[0] = input.nextInt();
+        System.out.print("Indtast en til disciplin eller afslut ved at taste 0:");
+        if (input.nextInt() == 0) {
+            return disciplins;
+        }
+        userChoices[1] = input.nextInt();
+        System.out.print("Indtast en til disciplin eller afslut ved at taste 0:");
+        if (input.nextInt() == 0) {
+            return disciplins;
+        }
+        userChoices[2] = input.nextInt();
+        System.out.print("Indtast en til disciplin eller afslut ved at taste 0:");
+        if (input.nextInt() == 0) {
+            return disciplins;
+        }
+        userChoices[3] = input.nextInt();
+        return disciplins;
+
+         */
+
+
+
+
+        /*
+        while (input.hasNextInt()) {
+            for (int i = 0; i < userChoices.length; i++) {
+                userChoices[i] = input.nextInt();
+            }
+        }
+
+
+
+        for (int i = 0; i < userChoices.length; i++) {
+            if (userChoices[i] == 1) {
+                disciplins[0] = Disciplin.CRAWL;
+            }
+            if (userChoices[i] == 2) {
+                disciplins[1] = Disciplin.RYGCRAWL;
+            }
+            if (userChoices[i] == 3) {
+                disciplins[2] = Disciplin.BRYST;
+            }
+            if (userChoices[i] == 4) {
+                disciplins[3] = Disciplin.BUTTERFLY;
+            }
+        }
+        return disciplins;
+    }
+    */
+    }
+
 
     public Integer userChosenMenu() {
         Scanner scan = new Scanner(System.in);
