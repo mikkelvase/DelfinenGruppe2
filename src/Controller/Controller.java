@@ -23,7 +23,7 @@ public class Controller {
     //og slipper derfor for at skulle ned og læse i fil i hver metode.
     //Vh Simon
 
-
+    // Denne metode skal vel egentlig ligge i UI?
     public void Menu() throws FileNotFoundException {
 
 
@@ -42,7 +42,7 @@ public class Controller {
 
         } else if (userChoice == 2) {
 
-            ui.uiText("Klubben: " + getKlub());
+            ui.uiText("Klubben: " + klub.getMedlemsListe());
         }
 
         Menu();
@@ -56,7 +56,7 @@ public class Controller {
 
     public void opretNySvømmer(Svømmer svømmer) throws FileNotFoundException {
 
-        getKlub().add(svømmer);
+        klub.tilføjMedlemTilKlub(svømmer);
         File file = new File("Svømmer.txt");
         PrintStream ps = new PrintStream(new FileOutputStream(file,true));
         ps.println(svømmer);
@@ -65,13 +65,9 @@ public class Controller {
 
     // Funktion til at få vores medlemdsliste fra klub klassen.
 
-    public ArrayList<Svømmer> getKlub() {
-
-        return klub.getMedlemsListe();
-    }
 
 
-    // Scan Fra fil opretter en ny arrayliste ud fra den arrayliste som opretSvømmereUdFraDataITekstFil() retunere.
+    // Scan Fra fil opretter en ny arrayliste ud fra den arrayliste som opretSvømmereUdFraDataITekstFil() retunerer.
     // Herefter looper vi igennem vores midlertidige arrayliste og henter hver en svømmer og tilføjer dem til klubben.
     // På den måde har vi altid en klub fuld af medlemmer når programmet starter.
 
@@ -81,7 +77,7 @@ public class Controller {
 
         for (int i = 0; i < temp.size(); i++) {
 
-            getKlub().add(temp.get(i));
+            klub.tilføjMedlemTilKlub(temp.get(i));
 
 
         }

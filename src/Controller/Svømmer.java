@@ -2,6 +2,7 @@ package Controller;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Arrays;
 
 public class Svømmer {
     protected java.lang.String navn;
@@ -86,6 +87,7 @@ public class Svømmer {
     }
 
     public LocalDate getFødselsdag() {
+
         return fødselsdag;
     }
 
@@ -93,11 +95,10 @@ public class Svømmer {
     public java.lang.String toString() {
         return
                 navn + " " +
-                        fødselsdag + " " +
-                        adresse + " " +
-                        aktivitetsform + " " +
-                        
-                        disciplin
+                fødselsdag + " " +
+                adresse + " " +
+                aktivitetsform + " " +
+                Arrays.toString(disciplin)
 
                 ;
     }

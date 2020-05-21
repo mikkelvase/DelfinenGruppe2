@@ -23,19 +23,25 @@ public class UI {
             System.out.print("Indtast adresse: ");
             java.lang.String adresse = input.nextLine();
 
-            System.out.print("Aktivt eller passivt medlem? (indtast Aktiv/Passiv): ");
-            java.lang.String aktivitetsform = input.nextLine();
+            System.out.println("Tast 1 for Aktivt medlem \nTast 2 for Passivt medlem");
+            String aktivitetsform = "";
+            int choice = input.nextInt();
+            if (choice == 1) {
+                aktivitetsform = "Aktiv";
+            } else if (choice == 2) {
+                aktivitetsform = "Passiv";
+            }
 
             System.out.println("Tast 1 for Motionist \nTast 2 for Konkurrencesvømmer");
             String medlemskabsType = "";
-            int choice = input.nextInt();
+            choice = input.nextInt();
             if (choice == 1){
                 medlemskabsType  = "Motionist";
                 Svømmer nySvømmer = new Svømmer(navn, LocalDate.parse(fødselsdag), adresse, aktivitetsform, medlemskabsType);
                 System.out.println("Svømmer oprettet\n");
                 return nySvømmer;
 
-            } else if (choice == 2 ) {
+            } else if (choice == 2) {
                 String[] disciplins = promptIndledendeDisciplinValg();
                 Svømmer nySvømmer = new Svømmer(navn, LocalDate.parse(fødselsdag), adresse, aktivitetsform, disciplins);
                 //Her skal bruger promptes til muligheden for at tilføje flere discipliner. Hvis brugeren ønsker det, skal de
@@ -58,74 +64,34 @@ public class UI {
     public String[] promptIndledendeDisciplinValg() {
         String[] chosenDisciplins = new String[4];
         System.out.println("1. Crawl // 2. Rygcrawl // 3. Bryst // 4. Butterfly:");
-        System.out.print("Indtast disciplin:");
-        switch (input.nextInt()) {
-            case 1:
-                chosenDisciplins[0] = "Crawl";
-                break;
-            case 2:
-                chosenDisciplins[1] = "Rygcrawl";
-                break;
-            case 3:
-                chosenDisciplins[2] = "Bryst";
-                break;
-            case 4:
-                chosenDisciplins[3] = "Butterfly";
-                break;
+        System.out.println("Indtast disciplin (Ex.: 1 3 4): ");
+        
+        String in = input.next();
+        String[] inStrings = in.split(" ");
+        int[] integers = new int[inStrings.length];
+        for (int i = 0; i < integers.length; i++){
+            integers[i] = Integer.parseInt(inStrings[i]);
+        }
+        for (int i = 0; i < integers.length; i++) {
 
+            switch (integers[i]) {
+                case 1:
+                    chosenDisciplins[0] = "Crawl";
+                    break;
+                case 2:
+                    chosenDisciplins[1] = "Rygcrawl";
+                    break;
+                case 3:
+                    chosenDisciplins[2] = "Bryst";
+                    break;
+                case 4:
+                    chosenDisciplins[3] = "Butterfly";
+                    break;
+
+            }
         }
 
         return chosenDisciplins;
-        /*
-        userChoices[0] = input.nextInt();
-        System.out.print("Indtast en til disciplin eller afslut ved at taste 0:");
-        if (input.nextInt() == 0) {
-            return disciplins;
-        }
-        userChoices[1] = input.nextInt();
-        System.out.print("Indtast en til disciplin eller afslut ved at taste 0:");
-        if (input.nextInt() == 0) {
-            return disciplins;
-        }
-        userChoices[2] = input.nextInt();
-        System.out.print("Indtast en til disciplin eller afslut ved at taste 0:");
-        if (input.nextInt() == 0) {
-            return disciplins;
-        }
-        userChoices[3] = input.nextInt();
-        return disciplins;
-
-         */
-
-
-
-
-        /*
-        while (input.hasNextInt()) {
-            for (int i = 0; i < userChoices.length; i++) {
-                userChoices[i] = input.nextInt();
-            }
-        }
-
-
-
-        for (int i = 0; i < userChoices.length; i++) {
-            if (userChoices[i] == 1) {
-                disciplins[0] = Disciplin.CRAWL;
-            }
-            if (userChoices[i] == 2) {
-                disciplins[1] = Disciplin.RYGCRAWL;
-            }
-            if (userChoices[i] == 3) {
-                disciplins[2] = Disciplin.BRYST;
-            }
-            if (userChoices[i] == 4) {
-                disciplins[3] = Disciplin.BUTTERFLY;
-            }
-        }
-        return disciplins;
-    }
-    */
     }
 
 

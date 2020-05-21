@@ -35,11 +35,15 @@ public class SvømmerFil {
             String fødselsdag = scan.next();
             String adresse = scan.next();
             String aktivitetsform = scan.next();
-            //String konkurrence = scan.next();
+            String[] discipliner = new String[4];
+            discipliner[0] = scan.next();
+            discipliner[1] = scan.next();
+            discipliner[2] = scan.next();
+            discipliner[3] = scan.next();
 
 
 
-            Svømmer svømmer = new Svømmer(navn , LocalDate.parse(fødselsdag) , adresse , aktivitetsform );
+            Svømmer svømmer = new Svømmer(navn , LocalDate.parse(fødselsdag) , adresse , aktivitetsform ,discipliner);
 
             svømmerefraFil.add(svømmer);
 

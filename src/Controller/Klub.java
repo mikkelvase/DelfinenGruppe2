@@ -105,6 +105,10 @@ public class Klub {
         return AktiveMedlemmerOver60;
     }
 
+    public void tilføjMedlemTilKlub(Svømmer s){
+        medlemsListe.add(s);
+    }
+
 
     public double forventedeIndbetalinger(){
         double samletSum = getPassiveMedlemmer().size() * 500;
